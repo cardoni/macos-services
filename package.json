@@ -1,0 +1,11 @@
+{
+  "name": "mac-os-services",
+  "version": "0.0.1",
+  "description": "A collection of helpful Mac OS 'services' (the system menu items whenever you right-click in finder, etc.)",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Greg Cardoni <greg@cardoni.net> (https://cardoni.net/)",
+  "license": "MIT"
+}
