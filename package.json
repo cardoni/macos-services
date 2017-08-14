@@ -1,11 +1,99 @@
 {
   "name": "mac-os-services",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "A collection of helpful Mac OS 'services' (the system menu items whenever you right-click in finder, etc.)",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Greg Cardoni <greg@cardoni.net> (https://cardoni.net/)",
-  "license": "MIT"
+  "homepage": "https://github.com/cardoni/macos-services",
+  "main": "src/index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "build": "npm run clean && cross-env BABEL_ENV=commonjs babel src --out-dir lib --source-maps --copy-files",
+    "build:watch": "npm run build -- --watch",
+    "clean": "rimraf lib",
+    "prepublish": "npm run build"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "verbose": true
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb-base",
+    "env": {
+      "node": true,
+      "jest": true
+    },
+    "plugins": [
+      "import"
+    ],
+    "root": true,
+    "rules": {
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": [
+            "__tests__/**"
+          ]
+        }
+      ],
+      "import/prefer-default-export": 0,
+      "no-console": [
+        "error",
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+      ],
+      "no-use-before-define": 0,
+      "no-param-reassign": 0
+    }
+  },
+  "directories": {
+    "src": "./src",
+    "tests": "./__tests__"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:cardoni/macos-services.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cardoni/macos-services/issues"
+  },
+  "readmeFilename": "README.md",
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "engines": {
+    "node": ">=6 <9.0",
+    "npm": ">=5.0 <6.0"
+  },
+  "devDependencies": {
+    "babel-cli": "6.24.1",
+    "babel-core": "6.25.0",
+    "babel-eslint": "7.2.3",
+    "babel-jest": "20.0.3",
+    "babel-loader": "7.1.1",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-plugin-transform-export-extensions": "6.22.0",
+    "babel-plugin-transform-object-rest-spread": "6.23.0",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-es2015-node6": "0.4.0",
+    "babel-preset-es2016": "6.24.1",
+    "babel-preset-es2017": "6.24.1",
+    "cross-env": "5.0.5",
+    "eslint": "4.4.1",
+    "eslint-config-airbnb-base": "11.3.1",
+    "eslint-plugin-import": "2.7.0",
+    "jest-cli": "20.0.4",
+    "rimraf": "2.6.1"
+  }
 }

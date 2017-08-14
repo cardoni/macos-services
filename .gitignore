@@ -1,5 +1,15 @@
+# project build directories
+lib/
+deploy/
+dist/
 
-# Created by https://www.gitignore.io/api/node
+# MacOS-specific
+.DS_Store
+
+# ################### NOTE ###################
+#  Everything below is boilerplate from...   #
+#  https://www.gitignore.io/api/node         #
+# ################### ~~~~ ###################
 
 ### Node ###
 # Logs
@@ -60,6 +70,3 @@ typings/
 
 # dotenv environment variables file
 .env
-
-
-# End of https://www.gitignore.io/api/node
